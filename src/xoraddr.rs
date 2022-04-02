@@ -66,6 +66,7 @@ pub fn xor_bytes(dst: &mut [u8], a: &[u8], b: &[u8]) -> usize {
 /// XORMappedAddress implements XOR-MAPPED-ADDRESS attribute.
 ///
 /// RFC 5389 Section 15.2
+#[derive(Clone)]
 pub struct XorMappedAddress {
     pub ip: IpAddr,
     pub port: u16,

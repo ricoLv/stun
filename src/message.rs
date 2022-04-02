@@ -9,6 +9,7 @@ use rand::Rng;
 use std::fmt;
 use std::io::{Read, Write};
 
+use dyn_clone::{clone_trait_object, DynClone};
 // MAGIC_COOKIE is fixed value that aids in distinguishing STUN packets
 // from packets of other protocols when STUN is multiplexed with those
 // other protocols on the same Port.
@@ -26,10 +27,13 @@ pub const TRANSACTION_ID_SIZE: usize = 12; // 96 bit
 
 // Interfaces that are implemented by message attributes, shorthands for them,
 // or helpers for message fields as type or transaction id.
-pub trait Setter {
+pub trait Setter :DynClone + Send + Sync {
     // Setter sets *Message attribute.
     fn add_to(&self, m: &mut Message) -> Result<()>;
 }
+
+clone_trait_object!(Setter);
+
 
 // Getter parses attribute from *Message.
 pub trait Getter {

@@ -11,6 +11,7 @@ use crc::{Crc, CRC_32_ISO_HDLC};
 // FingerprintAttr represents FINGERPRINT attribute.
 //
 // RFC 5389 Section 15.5
+#[derive(Clone)]
 pub struct FingerprintAttr;
 
 // FINGERPRINT is shorthand for FingerprintAttr.

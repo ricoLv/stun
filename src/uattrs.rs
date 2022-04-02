@@ -10,6 +10,7 @@ use std::fmt;
 // UnknownAttributes represents UNKNOWN-ATTRIBUTES attribute.
 //
 // RFC 5389 Section 15.9
+#[derive(Clone)]
 pub struct UnknownAttributes(pub Vec<AttrType>);
 
 impl fmt::Display for UnknownAttributes {

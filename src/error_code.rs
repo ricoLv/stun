@@ -9,7 +9,7 @@ use std::fmt;
 // ErrorCodeAttribute represents ERROR-CODE attribute.
 //
 // RFC 5389 Section 15.6
-#[derive(Default)]
+#[derive(Default,Clone)]
 pub struct ErrorCodeAttribute {
     pub code: ErrorCode,
     pub reason: Vec<u8>,
